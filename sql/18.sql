@@ -4,5 +4,5 @@ LEAD
 siguiente:
 */
 
-select p.product_id, p.product_name, p.unit_price, lag(p.unit_price,1) over (order by p.product_id) as lastunitprice, (p.unit_price - lag(p.unit_price,1) over (order by p.product_id)) as pricedifference
+select p.product_id, p.product_name, p.unit_price, lead(p.unit_price,1) over (order by p.product_id) as nextunitprice
 from products p 
